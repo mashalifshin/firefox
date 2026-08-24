@@ -28,6 +28,7 @@ const EXPECTED_REMOTE_SETTINGS_URLBAR_RESULT = QuickSuggestTestUtils.ampResult({
 });
 
 const EXPECTED_MERINO_URLBAR_RESULT = QuickSuggestTestUtils.ampResult({
+  suggestionId: undefined,
   source: "merino",
   provider: "adm",
   requestId: "request_id",
@@ -253,6 +254,7 @@ add_task(async function multipleMerinoSuggestions() {
     context,
     matches: [
       QuickSuggestTestUtils.ampResult({
+        suggestionId: undefined,
         keyword: "multipleMerinoSuggestions 1 full_keyword",
         title: "multipleMerinoSuggestions 1 title",
         url: "multipleMerinoSuggestions 1 url",
@@ -330,6 +332,7 @@ add_task(async function dismissals_managed() {
   MerinoTestUtils.server.response.body.suggestions[0].url = url;
 
   let expectedMerinoResult = QuickSuggestTestUtils.ampResult({
+    suggestionId: undefined,
     url,
     source: "merino",
     provider: "adm",
@@ -517,6 +520,7 @@ add_task(async function dismissals_amp() {
     MerinoTestUtils.server.response.body.suggestions = [suggestion];
 
     let expectedResult = QuickSuggestTestUtils.ampResult({
+      suggestionId: undefined,
       suggestedIndex: -1,
       provider: suggestion.provider,
       title: suggestion.title,

@@ -1688,6 +1688,7 @@ async function doOnlineTopPickTest({ searchString, suggestion, expected }) {
         context,
         expected: [
           QuickSuggestTestUtils.ampResult({
+            suggestionId: undefined,
             ...expectedPayload,
 
             // Usual properties

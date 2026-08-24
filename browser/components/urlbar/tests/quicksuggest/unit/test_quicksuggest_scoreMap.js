@@ -433,6 +433,7 @@ add_task(async function merino_sponsored_addon_sponsoredWins() {
     expectedFeatureName: "AmpSuggestions",
     expectedScore: score,
     expectedResult: makeExpectedAmpResult({
+      suggestionId: undefined,
       keyword: "test",
       suggestion: MERINO_SPONSORED_SUGGESTION,
       source: "merino",
@@ -488,6 +489,7 @@ add_task(async function merino_sponsored_unmanaged_sponsoredWins() {
     expectedFeatureName: "AmpSuggestions",
     expectedScore: score,
     expectedResult: makeExpectedAmpResult({
+      suggestionId: undefined,
       keyword: "test",
       suggestion: MERINO_SPONSORED_SUGGESTION,
       source: "merino",
@@ -624,8 +626,10 @@ function makeExpectedAmpResult({
   source,
   provider,
   requestId,
+  ...options
 }) {
   return QuickSuggestTestUtils.ampResult({
+    ...options,
     keyword,
     source,
     provider,

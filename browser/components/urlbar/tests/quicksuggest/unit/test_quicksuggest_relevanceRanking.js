@@ -76,6 +76,7 @@ const MERINO_SUGGESTIONS = [
 const SEARCH_STRING = "frab";
 
 const EXPECTED_AMP_RESULT = QuickSuggestTestUtils.ampResult({
+  suggestionId: undefined,
   source: "merino",
   provider: "adm",
   requestId: "request_id",
@@ -398,6 +399,7 @@ function mockRustAmpSuggestion({ keyword, url, title, categories }) {
     clickUrl: suggestion.click_url,
     blockId: suggestion.id,
     iabCategory: suggestion.iab_category,
+    suggestionId: suggestion.suggestion_id,
     icon: null,
     fullKeyword: keyword,
     source: "rust",

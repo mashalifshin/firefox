@@ -474,8 +474,11 @@ class _QuickSuggestTestUtils {
     requestId = undefined,
     dismissalKey = undefined,
     categories = [],
-    suggestionId = "amp-suggestion-id",
+    ...options
   } = {}) {
+    // Pass `suggestionId: undefined` to expect a suggestion without an ID.
+    let suggestionId =
+      "suggestionId" in options ? options.suggestionId : "amp-suggestion-id";
     let result = {
       suggestedIndex,
       isSuggestedIndexRelativeToGroup,
@@ -521,6 +524,7 @@ class _QuickSuggestTestUtils {
         rawClickUrl: clickUrl,
         score: 0.3,
         ftsMatchInfo: null,
+        suggestionId,
       });
     } else {
       result.payload.icon = icon;
